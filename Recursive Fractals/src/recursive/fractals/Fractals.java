@@ -9,7 +9,7 @@ import java.awt.Color;
 import joyce.*;
 /**
  *
- * @author Eddy
+ * @author Edward Onochie
  */
 public class Fractals {
 
@@ -18,7 +18,6 @@ public class Fractals {
      */
     
     public static void main(String[] args) {
-        // TODO code application logic here
         Graph world = new Graph("H Tree",1000,1000);
         JLine line = new JLine(-5,0,5,0);
         world.draw(line);   
@@ -27,6 +26,7 @@ public class Fractals {
     
     public static void makeH(Graph world,JLine line, int level,boolean vertical) {
         
+        // base case
         if (level < 1) {
             return;
         }
@@ -47,6 +47,7 @@ public class Fractals {
              
              makeH(world,leftLine,level - 1,false);
              makeH(world,rightLine,level - 1,false);
+             // Double recursive, tail recursion
         }
         else {
             // make horizontal
